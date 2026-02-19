@@ -24,7 +24,7 @@ myst:
 :::
 
 ```{code-cell} ipython3
-import arviz as az
+import arviz.preview as az
 import numpy as np
 import pymc as pm
 import pytensor.tensor as pt
@@ -48,7 +48,7 @@ np.random.seed(RANDOM_SEED)
 # Set a seed for reproducibility of posterior results
 seed: int = sum(map(ord, "aft_weibull"))
 rng: np.random.Generator = np.random.default_rng(seed=seed)
-az.style.use("arviz-darkgrid")
+az.style.use("arviz-variat")
 ```
 
 ## Dataset
@@ -125,7 +125,7 @@ with model_1:
 ```
 
 ```{code-cell} ipython3
-az.plot_trace(idata_param1, var_names=["alpha", "beta"])
+az.plot_trace_dist(idata_param1, var_names=["alpha", "beta"])
 ```
 
 ```{code-cell} ipython3
@@ -155,7 +155,7 @@ with model_2:
 ```
 
 ```{code-cell} ipython3
-az.plot_trace(idata_param2, var_names=["r", "beta"])
+az.plot_trace_dist(idata_param2, var_names=["r", "beta"])
 ```
 
 ```{code-cell} ipython3
@@ -190,7 +190,7 @@ with model_3:
 ```
 
 ```{code-cell} ipython3
-az.plot_trace(idata_param3)
+az.plot_trace_dist(idata_param3)
 ```
 
 ```{code-cell} ipython3
